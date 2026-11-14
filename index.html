@@ -3,506 +3,433 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Study | Learn Every Day</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Study 3.0</title>
 <style>
 :root {
-  --bg:#080d1b;
-  --panel:#111a2d;
-  --panel2:#17233b;
-  --blue:#3988ff;
-  --cyan:#42d9ff;
-  --white:#f4f7ff;
-  --muted:#91a0ba;
-  --green:#48d6a0;
-  --border:#25334d;
+--bg:#080d1b;--panel:#111a2d;--panel2:#192943;
+--blue:#3988ff;--cyan:#42d9ff;--white:#f4f7ff;
+--muted:#91a0ba;--green:#48d6a0;--border:#25334d;
 }
-* {box-sizing:border-box}
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--white);
-  font-family:Arial, sans-serif;
-}
-button,input,textarea,select {font:inherit}
-button {cursor:pointer}
-.layout {display:flex;min-height:100vh}
-.sidebar {
-  width:235px;
-  background:#0c1425;
-  border-right:1px solid var(--border);
-  padding:25px 17px;
-  flex-shrink:0;
-}
-.logo {font-size:22px;font-weight:800;letter-spacing:2px;margin:5px 8px 35px}
-.logo span {color:var(--cyan)}
-.nav button {
-  display:block;
-  width:100%;
-  text-align:left;
-  background:transparent;
-  border:0;
-  color:var(--muted);
-  padding:13px 14px;
-  border-radius:10px;
-  margin:5px 0;
-}
-.nav button:hover,.nav button.active {
-  background:#192b49;
-  color:white;
-}
-.main {flex:1;min-width:0;padding:30px;max-width:1500px}
-.topbar {display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:30px}
-.topbar h1 {font-size:25px;margin:0}
-.date {color:var(--muted);font-size:13px;margin-top:7px}
-.avatar {
-  background:linear-gradient(135deg,var(--blue),var(--cyan));
-  width:42px;height:42px;border-radius:14px;
-  display:grid;place-items:center;font-weight:bold;color:#061021;
-}
-.page {display:none}
-.page.active {display:block}
-.welcome {
-  background:linear-gradient(120deg,#142c52,#123d69,#124d65);
-  padding:28px;border-radius:18px;margin-bottom:22px;
-  border:1px solid #285b85;
-}
-.welcome h2 {font-size:27px;margin:0 0 9px}
-.welcome p {color:#c5d8ee;margin:0}
-.grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}
-.card {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:20px;
-  min-width:0;
-}
-.card h3 {margin:0 0 15px;font-size:16px}
-.stat {font-size:29px;font-weight:800;margin:8px 0}
-.muted {color:var(--muted);font-size:13px}
-.section-title {font-size:19px;margin:25px 0 14px}
-.progress-track {height:9px;background:#26344c;border-radius:20px;overflow:hidden;margin-top:12px}
-.progress-fill {height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0%;transition:width .3s}
-.field {
-  width:100%;background:#0c1527;color:white;
-  border:1px solid var(--border);border-radius:9px;
-  padding:12px;margin:7px 0;
-}
-textarea.field {resize:vertical;min-height:180px}
-.primary {
-  background:var(--blue);color:white;border:0;
-  border-radius:9px;padding:11px 16px;font-weight:700;
-}
-.primary:hover {filter:brightness(1.15)}
-.secondary {
-  background:#22324e;color:white;border:1px solid #344968;
-  border-radius:9px;padding:10px 14px;
-}
-.list {display:grid;gap:10px}
-.item {
-  background:var(--panel2);padding:13px;border-radius:10px;
-  display:flex;align-items:center;gap:10px;
-}
-.item span {flex:1;min-width:0;overflow-wrap:anywhere}
-.item small {color:var(--muted)}
-.item input[type=checkbox] {width:18px;height:18px;accent-color:var(--blue)}
-.delete {background:transparent;color:#ff8792;border:0;font-size:18px}
-.empty {color:var(--muted);font-size:14px;padding:10px 0}
-.quiz-option {
-  display:block;width:100%;text-align:left;margin:9px 0;
-  background:var(--panel2);border:1px solid var(--border);
-  color:white;padding:13px;border-radius:10px;
-}
-.quiz-option:hover {border-color:var(--cyan)}
-.quiz-option:disabled {cursor:default;opacity:1}
-.feedback {margin-top:15px;padding:13px;border-radius:10px;background:#172c3b}
-.table-wrap {overflow-x:auto}
-table {width:100%;border-collapse:collapse;min-width:500px}
-th,td {padding:13px;text-align:left;border-bottom:1px solid var(--border)}
-th {color:var(--muted);font-size:13px}
-.footer {color:var(--muted);font-size:12px;text-align:center;margin:35px 0 10px}
-@media(max-width:850px) {
-  .sidebar {width:190px}
-  .main {padding:20px}
-  .grid {grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media(max-width:600px) {
-  .layout {display:block}
-  .sidebar {width:100%;padding:12px;border-right:0;border-bottom:1px solid var(--border)}
-  .logo {margin:5px 8px 12px}
-  .nav {display:flex;overflow-x:auto;gap:5px}
-  .nav button {white-space:nowrap;width:auto;margin:0;padding:10px}
-  .main {padding:17px}
-  .grid {grid-template-columns:1fr}
-  .topbar h1 {font-size:21px}
-}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:230px;background:#0c1425;padding:24px 16px;border-right:1px solid var(--border);flex-shrink:0}
+.logo{font-size:22px;font-weight:800;letter-spacing:2px;margin:5px 8px 30px}
+.logo span{color:var(--cyan)}
+.nav button{display:block;width:100%;text-align:left;padding:13px;background:transparent;border:0;color:var(--muted);border-radius:9px;margin:5px 0}
+.nav button.active,.nav button:hover{background:#192b49;color:white}
+.main{flex:1;min-width:0;padding:28px;max-width:1500px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.topbar h1{margin:0;font-size:25px}
+.date{color:var(--muted);font-size:13px;margin-top:7px}
+.avatar{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#061021;font-weight:bold}
+.page{display:none}.page.active{display:block}
+.welcome{padding:28px;border-radius:17px;background:linear-gradient(120deg,#142c52,#123d69,#124d65);border:1px solid #285b85;margin-bottom:20px}
+.welcome h2{margin:0 0 8px;font-size:27px}
+.welcome p{margin:0;color:#c5d8ee}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:20px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:19px;min-width:0}
+.card h3{margin:0 0 14px;font-size:16px}
+.stat{font-size:29px;font-weight:800;margin:8px 0}
+.muted{color:var(--muted);font-size:13px}
+.section-title{font-size:19px;margin:25px 0 14px}
+.field{display:block;width:100%;background:#0c1527;color:white;border:1px solid var(--border);border-radius:9px;padding:12px;margin:8px 0}
+textarea.field{min-height:180px;resize:vertical}
+.primary{background:var(--blue);color:white;border:0;border-radius:9px;padding:11px 16px;font-weight:bold}
+.secondary{background:#22324e;color:white;border:1px solid #344968;border-radius:9px;padding:10px 14px}
+.primary:hover,.secondary:hover{filter:brightness(1.15)}
+.list{display:grid;gap:10px}
+.item{background:var(--panel2);padding:13px;border-radius:10px;display:flex;align-items:center;gap:10px}
+.item span{flex:1;overflow-wrap:anywhere}
+.item small{color:var(--muted)}
+.item input{accent-color:var(--blue);width:18px;height:18px}
+.delete{background:transparent;color:#ff8792;border:0;font-size:19px}
+.empty{color:var(--muted);font-size:14px;padding:10px 0}
+.progress-track{height:9px;background:#26344c;border-radius:20px;overflow:hidden;margin-top:12px}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .3s}
+.quiz-option{display:block;width:100%;text-align:left;margin:9px 0;background:var(--panel2);border:1px solid var(--border);color:white;padding:13px;border-radius:10px}
+.quiz-option:hover{border-color:var(--cyan)}
+.quiz-option:disabled{opacity:1;cursor:default}
+.feedback{margin-top:15px;padding:13px;border-radius:10px;background:#172c3b}
+.badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.badge-card{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.badge-icon{font-size:30px;margin-bottom:9px}
+.badge-card.locked{opacity:.38;filter:grayscale(1)}
+.badge-card strong{display:block;margin-bottom:5px}
+.footer{text-align:center;color:var(--muted);font-size:12px;margin:35px 0 10px}
+@media(max-width:850px){.sidebar{width:190px}.main{padding:18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.layout{display:block}.sidebar{width:100%;padding:12px;border-right:0;border-bottom:1px solid var(--border)}.logo{margin:5px 8px 12px}.nav{display:flex;overflow-x:auto;gap:5px}.nav button{white-space:nowrap;width:auto;margin:0;padding:10px}.main{padding:16px}.grid{grid-template-columns:1fr}.badges{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
 <div class="layout">
-  <aside class="sidebar">
-    <div class="logo">NOVA <span>STUDY</span></div>
-    <nav class="nav">
-      <button class="active" data-page="dashboard">⌂ Dashboard</button>
-      <button data-page="planner">▦ Study planner</button>
-      <button data-page="goals">◎ Learning goals</button>
-      <button data-page="notes">▤ My notes</button>
-      <button data-page="quiz">✦ Quizzes</button>
-      <button data-page="progress">↗ Progress</button>
-    </nav>
-  </aside>
+<aside class="sidebar">
+<div class="logo">NOVA <span>STUDY</span></div>
+<nav class="nav">
+<button class="active" data-page="dashboard">⌂ Dashboard</button>
+<button data-page="planner">▦ Study planner</button>
+<button data-page="goals">◎ Learning goals</button>
+<button data-page="notes">▤ My notes</button>
+<button data-page="quiz">✦ Quizzes</button>
+<button data-page="achievements">🏆 Achievements</button>
+<button data-page="progress">↗ Progress</button>
+</nav>
+</aside>
+<main class="main">
+<header class="topbar">
+<div><h1 id="pageTitle">Dashboard</h1><div class="date" id="today"></div></div>
+<div class="avatar">N</div>
+</header>
 
-  <main class="main">
-    <header class="topbar">
-      <div>
-        <h1 id="pageTitle">Dashboard</h1>
-        <div class="date" id="today"></div>
-      </div>
-      <div class="avatar">N</div>
-    </header>
+<section class="page active" id="dashboard">
+<div class="welcome">
+<h2>Welcome to Nova Study.</h2>
+<p>Learn something new. Every day. Your next achievement starts here.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="muted">Completed goals</div><div class="stat" id="dashGoals">0</div></div>
+<div class="card"><div class="muted">Study sessions</div><div class="stat" id="dashSessions">0</div></div>
+<div class="card"><div class="muted">Quiz answers</div><div class="stat" id="dashQuizzes">0</div></div>
+</div>
+<div class="grid">
+<div class="card"><div class="muted">Current study streak</div><div class="stat" id="dashStreak">0 🔥</div><div class="muted">Consecutive active days</div></div>
+<div class="card"><div class="muted">Achievements unlocked</div><div class="stat" id="dashBadges">0</div></div>
+<div class="card"><div class="muted">Goal completion</div><div class="stat" id="dashPercent">0%</div></div>
+</div>
+<div class="card">
+<h3>Your learning progress</h3>
+<div class="muted" id="dashProgressText">0% of your goals completed</div>
+<div class="progress-track"><div class="progress-fill" id="dashProgress"></div></div>
+</div>
+<h2 class="section-title">Quick actions</h2>
+<div class="grid">
+<div class="card"><h3>📅 Study planner</h3><p class="muted">Organise your next session.</p><button class="primary" onclick="showPage('planner')">Open planner</button></div>
+<div class="card"><h3>📝 My notes</h3><p class="muted">Keep your important ideas.</p><button class="primary" onclick="showPage('notes')">Open notes</button></div>
+<div class="card"><h3>🧠 Take a quiz</h3><p class="muted">Test your knowledge.</p><button class="primary" onclick="showPage('quiz')">Start quiz</button></div>
+</div>
+</section>
 
-    <section class="page active" id="dashboard">
-      <div class="welcome">
-        <h2>Welcome to Nova Study.</h2>
-        <p>Learn something new. Every day. Your next achievement starts here.</p>
-      </div>
+<section class="page" id="planner">
+<div class="card">
+<h3>Add a study session</h3>
+<input class="field" id="sessionSubject" placeholder="Subject">
+<input class="field" id="sessionDate" type="date">
+<input class="field" id="sessionTime" type="time">
+<button class="primary" onclick="addSession()">Add session</button>
+</div>
+<h2 class="section-title">Your timetable</h2>
+<div class="card list" id="sessionList"></div>
+</section>
 
-      <div class="grid">
-        <div class="card">
-          <div class="muted">Learning goals completed</div>
-          <div class="stat" id="dashGoals">0</div>
-          <div class="muted">Keep making progress</div>
-        </div>
-        <div class="card">
-          <div class="muted">Study sessions planned</div>
-          <div class="stat" id="dashSessions">0</div>
-          <div class="muted">On your timetable</div>
-        </div>
-        <div class="card">
-          <div class="muted">Quiz questions answered</div>
-          <div class="stat" id="dashQuizzes">0</div>
-          <div class="muted">Every question is practice</div>
-        </div>
-      </div>
+<section class="page" id="goals">
+<div class="card">
+<h3>Create a learning goal</h3>
+<input class="field" id="goalInput" placeholder="What do you want to learn?">
+<button class="primary" onclick="addGoal()">Add goal</button>
+</div>
+<h2 class="section-title">Your goals</h2>
+<div class="card list" id="goalList"></div>
+</section>
 
-      <div class="card">
-        <h3>Your learning progress</h3>
-        <div class="muted" id="dashProgressText">0% of your goals completed</div>
-        <div class="progress-track"><div class="progress-fill" id="dashProgress"></div></div>
-      </div>
+<section class="page" id="notes">
+<div class="card">
+<h3>My study notes</h3>
+<p class="muted">Notes save automatically in this browser on this device.</p>
+<textarea class="field" id="notesArea" placeholder="Write your notes here..."></textarea>
+<div class="muted" id="notesStatus">Saved automatically.</div>
+</div>
+</section>
 
-      <h2 class="section-title">Quick actions</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>📅 Plan your study</h3>
-          <p class="muted">Organise your next learning session.</p>
-          <button class="primary" onclick="showPage('planner')">Open planner</button>
-        </div>
-        <div class="card">
-          <h3>📝 Write some notes</h3>
-          <p class="muted">Keep your important ideas together.</p>
-          <button class="primary" onclick="showPage('notes')">Open notes</button>
-        </div>
-        <div class="card">
-          <h3>🧠 Test your knowledge</h3>
-          <p class="muted">Try a quick general knowledge quiz.</p>
-          <button class="primary" onclick="showPage('quiz')">Start a quiz</button>
-        </div>
-      </div>
-    </section>
+<section class="page" id="quiz">
+<div class="card">
+<h3>Choose a quiz subject</h3>
+<select class="field" id="quizCategory" onchange="startQuiz()">
+<option value="science">🔬 Science</option>
+<option value="maths">➗ Maths</option>
+<option value="history">🏛️ History</option>
+<option value="geography">🌍 Geography</option>
+<option value="technology">💻 Technology</option>
+</select>
+<div id="quizArea"></div>
+<button class="secondary" id="nextQuiz" onclick="nextQuestion()" style="display:none">Next question</button>
+<div id="quizResult" class="feedback" style="display:none"></div>
+</div>
+</section>
 
-    <section class="page" id="planner">
-      <div class="card">
-        <h3>Add a study session</h3>
-        <input class="field" id="sessionSubject" placeholder="Subject (e.g. Science)">
-        <input class="field" id="sessionDate" type="date">
-        <input class="field" id="sessionTime" type="time">
-        <button class="primary" onclick="addSession()">Add session</button>
-      </div>
-      <h2 class="section-title">Your timetable</h2>
-      <div class="card list" id="sessionList"></div>
-    </section>
+<section class="page" id="achievements">
+<div class="welcome">
+<h2>Your achievements 🏆</h2>
+<p>Keep learning to unlock more badges.</p>
+</div>
+<div class="card">
+<h3>Your badges</h3>
+<div class="badges" id="badgeList"></div>
+</div>
+</section>
 
-    <section class="page" id="goals">
-      <div class="card">
-        <h3>Create a learning goal</h3>
-        <input class="field" id="goalInput" placeholder="What do you want to learn?">
-        <button class="primary" onclick="addGoal()">Add goal</button>
-      </div>
-      <h2 class="section-title">Your goals</h2>
-      <div class="card list" id="goalList"></div>
-    </section>
+<section class="page" id="progress">
+<div class="card">
+<h3>Your progress overview</h3>
+<div class="stat" id="progressPercent">0%</div>
+<div class="muted">Learning goals completed</div>
+<div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+</div>
+<h2 class="section-title">Your activity</h2>
+<div class="grid">
+<div class="card"><div class="muted">Goals completed</div><div class="stat" id="progressGoals">0</div></div>
+<div class="card"><div class="muted">Study sessions</div><div class="stat" id="progressSessions">0</div></div>
+<div class="card"><div class="muted">Quiz answers</div><div class="stat" id="progressQuizzes">0</div></div>
+</div>
+<div class="card"><div class="muted">Current study streak</div><div class="stat" id="progressStreak">0 🔥</div></div>
+</section>
 
-    <section class="page" id="notes">
-      <div class="card">
-        <h3>My study notes</h3>
-        <p class="muted">Your notes are saved automatically in this browser on this device.</p>
-        <textarea class="field" id="notesArea" placeholder="Write your notes here..."></textarea>
-        <div class="muted" id="notesStatus">Your notes are saved automatically.</div>
-      </div>
-    </section>
-
-    <section class="page" id="quiz">
-      <div class="card">
-        <h3>General knowledge quiz</h3>
-        <p class="muted">Choose an answer to test what you know.</p>
-        <div id="quizArea"></div>
-        <button class="secondary" id="nextQuiz" onclick="nextQuestion()" style="display:none">Next question</button>
-        <div id="quizResult" class="feedback" style="display:none"></div>
-      </div>
-    </section>
-
-    <section class="page" id="progress">
-      <div class="card">
-        <h3>Your progress overview</h3>
-        <div class="stat" id="progressPercent">0%</div>
-        <div class="muted">Learning goals completed</div>
-        <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
-      </div>
-      <h2 class="section-title">Your activity</h2>
-      <div class="grid">
-        <div class="card"><div class="muted">Goals completed</div><div class="stat" id="progressGoals">0</div></div>
-        <div class="card"><div class="muted">Study sessions</div><div class="stat" id="progressSessions">0</div></div>
-        <div class="card"><div class="muted">Quiz answers</div><div class="stat" id="progressQuizzes">0</div></div>
-      </div>
-      <p class="muted">Your progress is stored locally in this browser. It is not an online account.</p>
-    </section>
-
-    <div class="footer">NOVA STUDY · A NOVA LABS PROJECT</div>
-  </main>
+<div class="footer">NOVA STUDY 3.0 · A NOVA LABS PROJECT</div>
+</main>
 </div>
 
 <script>
-const STORAGE_KEY = "novaStudyV2";
-let data = {goals:[],sessions:[],notes:"",quizAnswers:0};
+const STORAGE_KEY="novaStudyV2";
+let data={goals:[],sessions:[],notes:"",quizAnswers:0,activeDates:[]};
 
-function loadData() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (saved && typeof saved === "object") {
-      data = {...data,...saved};
-    }
-  } catch (error) {
-    console.warn("Could not load saved study data.");
-  }
+function loadData(){
+try{
+const saved=JSON.parse(localStorage.getItem(STORAGE_KEY));
+if(saved&&typeof saved==="object")data={...data,...saved};
+}catch(e){console.warn("Could not load saved data.");}
+if(!Array.isArray(data.goals))data.goals=[];
+if(!Array.isArray(data.sessions))data.sessions=[];
+if(!Array.isArray(data.activeDates))data.activeDates=[];
 }
-function saveData() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  } catch (error) {
-    alert("Your browser could not save the changes. Check your browser storage settings.");
-  }
-  updateDashboard();
+function saveData(){
+try{localStorage.setItem(STORAGE_KEY,JSON.stringify(data));}
+catch(e){alert("Your browser could not save your changes.");}
+updateDashboard();
+renderBadges();
 }
-function showPage(page) {
-  document.querySelectorAll(".page").forEach(el => el.classList.remove("active"));
-  document.getElementById(page).classList.add("active");
-  document.querySelectorAll(".nav button").forEach(btn => {
-    btn.classList.toggle("active",btn.dataset.page === page);
-  });
-  const names = {
-    dashboard:"Dashboard",planner:"Study planner",goals:"Learning goals",
-    notes:"My notes",quiz:"Quizzes",progress:"Progress"
-  };
-  document.getElementById("pageTitle").textContent = names[page];
-  if (page === "progress") updateDashboard();
+function todayKey(){
+const d=new Date();
+return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
-document.querySelectorAll(".nav button").forEach(btn => {
-  btn.addEventListener("click",() => showPage(btn.dataset.page));
+function recordActivity(){
+const today=todayKey();
+if(!data.activeDates.includes(today))data.activeDates.push(today);
+saveData();
+}
+function getStreak(){
+const dates=new Set(data.activeDates);
+let day=new Date();
+if(!dates.has(todayKey())){
+day.setDate(day.getDate()-1);
+if(!dates.has(todayKeyFor(day)))return 0;
+}
+let streak=0;
+while(dates.has(todayKeyFor(day))){
+streak++;
+day.setDate(day.getDate()-1);
+}
+return streak;
+}
+function todayKeyFor(d){
+return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function showPage(page){
+document.querySelectorAll(".page").forEach(e=>e.classList.remove("active"));
+document.getElementById(page).classList.add("active");
+document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+const names={dashboard:"Dashboard",planner:"Study planner",goals:"Learning goals",notes:"My notes",quiz:"Quizzes",achievements:"Achievements",progress:"Progress"};
+document.getElementById("pageTitle").textContent=names[page];
+if(page==="achievements")renderBadges();
+}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+
+function addGoal(){
+const input=document.getElementById("goalInput"),text=input.value.trim();
+if(!text)return alert("Please enter a goal.");
+data.goals.push({text,done:false});input.value="";saveData();renderGoals();
+}
+function toggleGoal(i){
+data.goals[i].done=!data.goals[i].done;
+if(data.goals[i].done)recordActivity();else saveData();
+renderGoals();
+}
+function deleteGoal(i){data.goals.splice(i,1);saveData();renderGoals();}
+function renderGoals(){
+const list=document.getElementById("goalList");list.innerHTML="";
+if(!data.goals.length){list.innerHTML='<div class="empty">No goals yet. Add your first goal above!</div>';return;}
+data.goals.forEach((g,i)=>{
+const row=document.createElement("div");row.className="item";
+const check=document.createElement("input");check.type="checkbox";check.checked=!!g.done;check.addEventListener("change",()=>toggleGoal(i));
+const label=document.createElement("span");label.textContent=g.text;if(g.done)label.style.textDecoration="line-through";
+const del=document.createElement("button");del.className="delete";del.textContent="×";del.setAttribute("aria-label","Delete goal");del.addEventListener("click",()=>deleteGoal(i));
+row.append(check,label,del);list.appendChild(row);
+});
+}
+
+function addSession(){
+const subject=document.getElementById("sessionSubject").value.trim();
+const date=document.getElementById("sessionDate").value;
+const time=document.getElementById("sessionTime").value;
+if(!subject||!date||!time)return alert("Please enter a subject, date and time.");
+data.sessions.push({subject,date,time});
+data.sessions.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+document.getElementById("sessionSubject").value="";
+document.getElementById("sessionDate").value="";
+document.getElementById("sessionTime").value="";
+saveData();renderSessions();
+}
+function deleteSession(i){data.sessions.splice(i,1);saveData();renderSessions();}
+function renderSessions(){
+const list=document.getElementById("sessionList");list.innerHTML="";
+if(!data.sessions.length){list.innerHTML='<div class="empty">No sessions planned yet.</div>';return;}
+data.sessions.forEach((s,i)=>{
+const row=document.createElement("div");row.className="item";
+const label=document.createElement("span");label.textContent=s.subject;
+const detail=document.createElement("small");detail.textContent=s.date+" · "+s.time;
+const del=document.createElement("button");del.className="delete";del.textContent="×";del.setAttribute("aria-label","Delete session");del.addEventListener("click",()=>deleteSession(i));
+row.append(label,detail,del);list.appendChild(row);
 });
 
-function addGoal() {
-  const input = document.getElementById("goalInput");
-  const text = input.value.trim();
-  if (!text) return alert("Please enter a learning goal.");
-  data.goals.push({text,done:false});
-  input.value = "";
-  saveData();
-  renderGoals();
-}
-function toggleGoal(index) {
-  data.goals[index].done = !data.goals[index].done;
-  saveData();
-  renderGoals();
-}
-function deleteGoal(index) {
-  data.goals.splice(index,1);
-  saveData();
-  renderGoals();
-}
-function renderGoals() {
-  const list = document.getElementById("goalList");
-  list.innerHTML = "";
-  if (!data.goals.length) {
-    list.innerHTML = '<div class="empty">No goals yet. Add your first learning goal above!</div>';
-    return;
-  }
-  data.goals.forEach((goal,index) => {
-    const row = document.createElement("div");
-    row.className = "item";
-    const check = document.createElement("input");
-    check.type = "checkbox";
-    check.checked = !!goal.done;
-    check.addEventListener("change",() => toggleGoal(index));
-    const label = document.createElement("span");
-    label.textContent = goal.text;
-    if (goal.done) label.style.textDecoration = "line-through";
-    const del = document.createElement("button");
-    del.className = "delete";
-    del.textContent = "×";
-    del.setAttribute("aria-label","Delete goal");
-    del.addEventListener("click",() => deleteGoal(index));
-    row.append(check,label,del);
-    list.appendChild(row);
-  });
 }
 
-function addSession() {
-  const subject = document.getElementById("sessionSubject").value.trim();
-  const date = document.getElementById("sessionDate").value;
-  const time = document.getElementById("sessionTime").value;
-  if (!subject || !date || !time) return alert("Please enter a subject, date and time.");
-  data.sessions.push({subject,date,time});
-  data.sessions.sort((a,b) => (a.date+a.time).localeCompare(b.date+b.time));
-  document.getElementById("sessionSubject").value = "";
-  document.getElementById("sessionDate").value = "";
-  document.getElementById("sessionTime").value = "";
-  saveData();
-  renderSessions();
+const quizData={
+science:[
+["Which planet is known as the Red Planet?",["Venus","Mars","Jupiter","Saturn"],1,"Mars is known as the Red Planet."],
+["What is H₂O?",["Oxygen","Salt","Water","Hydrogen"],2,"H₂O is the formula for water."],
+["Which organ pumps blood around the body?",["Lungs","Heart","Brain","Stomach"],1,"The heart pumps blood."],
+["What gas do plants absorb?",["Oxygen","Carbon dioxide","Helium","Nitrogen"],1,"Plants absorb carbon dioxide."],
+["What force pulls objects towards Earth?",["Magnetism","Friction","Gravity","Sound"],2,"Gravity attracts objects towards Earth."]
+],
+maths:[
+["What is 12 × 8?",["86","96","108","88"],1,"12 × 8 = 96."],
+["What is 25% of 200?",["25","40","50","75"],2,"25% of 200 is 50."],
+["What is the square root of 81?",["7","8","9","10"],2,"9 × 9 = 81."],
+["How many degrees are in a triangle?",["90","180","270","360"],1,"The angles in a triangle total 180 degrees."],
+["What is 144 ÷ 12?",["10","11","12","14"],2,"144 divided by 12 is 12."]
+],
+history:[
+["Which ancient civilisation built the pyramids at Giza?",["Romans","Ancient Egyptians","Vikings","Greeks"],1,"The pyramids at Giza were built by ancient Egyptians."],
+["In which year did World War II end?",["1918","1939","1945","1950"],2,"World War II ended in 1945."],
+["Where did the Olympic Games originate?",["Italy","Greece","France","Egypt"],1,"The ancient Olympic Games began in Greece."],
+["Who was the first person to walk on the Moon?",["Yuri Gagarin","Neil Armstrong","Buzz Aldrin","John Glenn"],1,"Neil Armstrong first stepped onto the Moon in 1969."],
+["Which empire was centred on Rome?",["Mongol","Roman","Ottoman","Aztec"],1,"The Roman Empire was centred on Rome."]
+],
+geography:[
+["What is the largest ocean?",["Atlantic","Indian","Pacific","Arctic"],2,"The Pacific is the largest ocean."],
+["What is the capital of France?",["Lyon","Marseille","Paris","Nice"],2,"Paris is the capital of France."],
+["Which continent is the Sahara Desert in?",["Asia","Africa","Europe","Australia"],1,"The Sahara is in northern Africa."],
+["Which is the longest river in South America?",["Amazon","Nile","Danube","Thames"],0,"The Amazon is the longest river in South America."],
+["Which country has the city of Tokyo?",["China","Japan","South Korea","Thailand"],1,"Tokyo is the capital of Japan."]
+],
+technology:[
+["What does CPU stand for?",["Central Processing Unit","Computer Power Utility","Central Program User","Core Processing Update"],0,"CPU means Central Processing Unit."],
+["Which language is used to style web pages?",["HTML","CSS","Python","SQL"],1,"CSS styles web pages."],
+["What does URL stand for?",["Universal Reading Link","Uniform Resource Locator","United Route List","User Reference Link"],1,"URL means Uniform Resource Locator."],
+["Which company created Windows?",["Apple","Google","Microsoft","Nintendo"],2,"Microsoft created Windows."],
+["What does Wi-Fi allow devices to do?",["Print only","Connect wirelessly to a network","Charge faster","Increase screen size"],1,"Wi-Fi connects devices to networks wirelessly."]
+]
+};
+let category="science",questionIndex=0,quizScore=0,answered=false;
+function startQuiz(){
+category=document.getElementById("quizCategory").value;
+questionIndex=0;quizScore=0;renderQuestion();
 }
-function deleteSession(index) {
-  data.sessions.splice(index,1);
-  saveData();
-  renderSessions();
+function renderQuestion(){
+const questions=quizData[category],q=questions[questionIndex];
+answered=false;
+document.getElementById("quizResult").style.display="none";
+document.getElementById("nextQuiz").style.display="none";
+document.getElementById("nextQuiz").textContent="Next question";
+const area=document.getElementById("quizArea");area.innerHTML="";
+const heading=document.createElement("h2");heading.textContent="Question "+(questionIndex+1)+" of "+questions.length;
+const question=document.createElement("p");question.textContent=q[0];
+area.append(heading,question);
+q[1].forEach((answer,i)=>{
+const btn=document.createElement("button");btn.className="quiz-option";btn.textContent=answer;btn.addEventListener("click",()=>chooseAnswer(i));area.appendChild(btn);
+});
 }
-function renderSessions() {
-  const list = document.getElementById("sessionList");
-  list.innerHTML = "";
-  if (!data.sessions.length) {
-    list.innerHTML = '<div class="empty">No sessions planned yet.</div>';
-    return;
-  }
-  data.sessions.forEach((session,index) => {
-    const row = document.createElement("div");
-    row.className = "item";
-    const label = document.createElement("span");
-    label.textContent = session.subject;
-    const detail = document.createElement("small");
-    detail.textContent = session.date + " · " + session.time;
-    const del = document.createElement("button");
-    del.className = "delete";
-    del.textContent = "×";
-    del.setAttribute("aria-label","Delete session");
-    del.addEventListener("click",() => deleteSession(index));
-    row.append(label,detail,del);
-    list.appendChild(row);
-  });
+function chooseAnswer(i){
+if(answered)return;answered=true;
+const q=quizData[category][questionIndex];
+document.querySelectorAll(".quiz-option").forEach((b,index)=>{
+b.disabled=true;
+if(index===q[2])b.style.borderColor="var(--green)";
+if(index===i&&i!==q[2])b.style.borderColor="#ff8792";
+});
+data.quizAnswers++;
+if(i===q[2])quizScore++;
+recordActivity();
+const result=document.getElementById("quizResult");result.style.display="block";
+result.textContent=(i===q[2]?"Correct! ":"Not quite. ")+q[3];
+const next=document.getElementById("nextQuiz");next.style.display="inline-block";
+if(questionIndex===quizData[category].length-1)next.textContent="See results";
+}
+function nextQuestion(){
+if(questionIndex===quizData[category].length-1){
+document.getElementById("quizArea").innerHTML="<h2>Quiz complete!</h2><p>You got "+quizScore+" out of "+quizData[category].length+" correct.</p>";
+document.getElementById("nextQuiz").textContent="Try again";
+document.getElementById("nextQuiz").onclick=()=>{document.getElementById("nextQuiz").onclick=nextQuestion;startQuiz();};
+document.getElementById("nextQuiz").style.display="inline-block";
+document.getElementById("quizResult").style.display="none";
+return;
+}
+questionIndex++;renderQuestion();
 }
 
-const questions = [
-  {q:"Which planet is known as the Red Planet?",a:["Venus","Mars","Jupiter","Saturn"],correct:1,why:"Mars is often called the Red Planet because of its reddish surface."},
-  {q:"What is the largest ocean on Earth?",a:["Atlantic","Indian","Pacific","Arctic"],correct:2,why:"The Pacific Ocean is the largest ocean on Earth."},
-  {q:"What is H₂O commonly known as?",a:["Oxygen","Salt","Water","Hydrogen"],correct:2,why:"H₂O is the chemical formula for water."},
-  {q:"How many sides does a hexagon have?",a:["Five","Six","Seven","Eight"],correct:1,why:"A hexagon has six sides."},
-  {q:"Which language is primarily used to style websites?",a:["HTML","CSS","Python","SQL"],correct:1,why:"CSS controls the appearance and layout of web pages."}
+const achievements=[
+{id:"firstGoal",icon:"🎯",name:"First Goal",description:"Complete your first learning goal.",test:()=>data.goals.some(g=>g.done)},
+{id:"fiveGoals",icon:"🌟",name:"Goal Getter",description:"Complete five learning goals.",test:()=>data.goals.filter(g=>g.done).length>=5},
+{id:"firstQuiz",icon:"🧠",name:"Quiz Starter",description:"Answer your first quiz question.",test:()=>data.quizAnswers>=1},
+{id:"tenQuizzes",icon:"📚",name:"Knowledge Seeker",description:"Answer ten quiz questions.",test:()=>data.quizAnswers>=10},
+{id:"streak3",icon:"🔥",name:"Three-Day Streak",description:"Study on three consecutive days.",test:()=>getStreak()>=3},
+{id:"streak7",icon:"🏆",name:"Weekly Champion",description:"Study on seven consecutive days.",test:()=>getStreak()>=7},
+{id:"planner",icon:"📅",name:"Organised Learner",description:"Plan your first study session.",test:()=>data.sessions.length>=1},
+{id:"notes",icon:"✍️",name:"Note Taker",description:"Write your first study note.",test:()=>data.notes.trim().length>0}
 ];
-let questionIndex = 0;
-let quizScore = 0;
-let answered = false;
-
-function renderQuestion() {
-  const q = questions[questionIndex];
-  answered = false;
-  document.getElementById("quizResult").style.display = "none";
-  document.getElementById("nextQuiz").style.display = "none";
-  const area = document.getElementById("quizArea");
-  area.innerHTML = "";
-  const heading = document.createElement("h2");
-  heading.textContent = "Question " + (questionIndex+1) + " of " + questions.length;
-  const question = document.createElement("p");
-  question.textContent = q.q;
-  area.append(heading,question);
-  q.a.forEach((answer,index) => {
-    const button = document.createElement("button");
-    button.className = "quiz-option";
-    button.textContent = answer;
-    button.addEventListener("click",() => chooseAnswer(index));
-    area.appendChild(button);
-  });
-}
-function chooseAnswer(index) {
-  if (answered) return;
-  answered = true;
-  const q = questions[questionIndex];
-  const buttons = document.querySelectorAll(".quiz-option");
-  buttons.forEach((button,i) => {
-    button.disabled = true;
-    if (i === q.correct) button.style.borderColor = "var(--green)";
-    if (i === index && i !== q.correct) button.style.borderColor = "#ff8792";
-  });
-  data.quizAnswers++;
-  if (index === q.correct) quizScore++;
-  saveData();
-  const result = document.getElementById("quizResult");
-  result.style.display = "block";
-  result.textContent = (index === q.correct ? "Correct! " : "Not quite. ") + q.why;
-  document.getElementById("nextQuiz").style.display = "inline-block";
-  if (questionIndex === questions.length-1) {
-    document.getElementById("nextQuiz").textContent = "See results";
-  }
-}
-function nextQuestion() {
-  if (questionIndex === questions.length-1) {
-    document.getElementById("quizArea").innerHTML =
-      "<h2>Quiz complete!</h2><p>You got " + quizScore + " out of " + questions.length + " correct.</p>";
-    document.getElementById("nextQuiz").textContent = "Try again";
-    document.getElementById("nextQuiz").onclick = restartQuiz;
-    document.getElementById("nextQuiz").style.display = "inline-block";
-    document.getElementById("quizResult").style.display = "none";
-    return;
-  }
-  questionIndex++;
-  renderQuestion();
-}
-function restartQuiz() {
-  questionIndex = 0;
-  quizScore = 0;
-  document.getElementById("nextQuiz").onclick = nextQuestion;
-  document.getElementById("nextQuiz").textContent = "Next question";
-  renderQuestion();
-}
-
-function updateDashboard() {
-  const total = data.goals.length;
-  const completed = data.goals.filter(g => g.done).length;
-  const percent = total ? Math.round(completed/total*100) : 0;
-  document.getElementById("dashGoals").textContent = completed + "/" + total;
-  document.getElementById("dashSessions").textContent = data.sessions.length;
-  document.getElementById("dashQuizzes").textContent = data.quizAnswers;
-  document.getElementById("dashProgress").style.width = percent + "%";
-  document.getElementById("dashProgressText").textContent = percent + "% of your goals completed";
-  document.getElementById("progressPercent").textContent = percent + "%";
-  document.getElementById("progressBar").style.width = percent + "%";
-  document.getElementById("progressGoals").textContent = completed + "/" + total;
-  document.getElementById("progressSessions").textContent = data.sessions.length;
-  document.getElementById("progressQuizzes").textContent = data.quizAnswers;
-}
-
-document.getElementById("notesArea").addEventListener("input",event => {
-  data.notes = event.target.value;
-  saveData();
-  document.getElementById("notesStatus").textContent = "Saved in this browser.";
+function renderBadges(){
+const list=document.getElementById("badgeList");if(!list)return;
+list.innerHTML="";
+achievements.forEach(a=>{
+const unlocked=a.test();
+const card=document.createElement("div");card.className="badge-card"+(unlocked?"":" locked");
+const icon=document.createElement("div");icon.className="badge-icon";icon.textContent=a.icon;
+const name=document.createElement("strong");name.textContent=a.name;
+const desc=document.createElement("div");desc.className="muted";desc.textContent=a.description;
+const status=document.createElement("div");status.className="muted";status.style.marginTop="9px";status.textContent=unlocked?"✓ Unlocked":"🔒 Locked";
+card.append(icon,name,desc,status);list.appendChild(card);
 });
+}
+function updateDashboard(){
+const total=data.goals.length,completed=data.goals.filter(g=>g.done).length;
+const percent=total?Math.round(completed/total*100):0;
+const streak=getStreak(),unlocked=achievements.filter(a=>a.test()).length;
+document.getElementById("dashGoals").textContent=completed+"/"+total;
+document.getElementById("dashSessions").textContent=data.sessions.length;
+document.getElementById("dashQuizzes").textContent=data.quizAnswers;
+document.getElementById("dashStreak").textContent=streak+" 🔥";
+document.getElementById("dashBadges").textContent=unlocked+"/"+achievements.length;
+document.getElementById("dashPercent").textContent=percent+"%";
+document.getElementById("dashProgress").style.width=percent+"%";
+document.getElementById("dashProgressText").textContent=percent+"% of your goals completed";
+document.getElementById("progressPercent").textContent=percent+"%";
+document.getElementById("progressBar").style.width=percent+"%";
+document.getElementById("progressGoals").textContent=completed+"/"+total;
+document.getElementById("progressSessions").textContent=data.sessions.length;
+document.getElementById("progressQuizzes").textContent=data.quizAnswers;
+document.getElementById("progressStreak").textContent=streak+" 🔥";
+}
 
-document.getElementById("today").textContent =
-  new Date().toLocaleDateString(undefined,{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+document.getElementById("notesArea").addEventListener("input",e=>{
+data.notes=e.target.value;saveData();
+document.getElementById("notesStatus").textContent="Saved in this browser.";
+});
+document.getElementById("today").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",year:"numeric",month:"long",day:"numeric"});
 
 loadData();
-document.getElementById("notesArea").value = data.notes || "";
-renderGoals();
-renderSessions();
-renderQuestion();
-updateDashboard();
+document.getElementById("notesArea").value=data.notes||"";
+renderGoals();renderSessions();renderQuestion();updateDashboard();renderBadges();
 </script>
 </body>
 </html>
