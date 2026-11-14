@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Study</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #080e20;
+  color: white;
+}
+header {
+  padding: 24px;
+  background: #111c38;
+  border-bottom: 1px solid #24385f;
+}
+h1 { color: #55aaff; margin: 0; }
+main { max-width: 900px; margin: auto; padding: 24px; }
+.card {
+  background: #142342;
+  border: 1px solid #29446e;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+}
+button {
+  background: #2586ff;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 18px;
+  cursor: pointer;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #456080;
+}
+.task { padding: 10px; border-bottom: 1px solid #29446e; }
+.small { color: #a9bddb; }
+</style>
+</head>
+<body>
+<header>
+  <h1>✦ NOVA STUDY</h1>
+  <p class="small">Learn something new. Every day.</p>
+</header>
+<main>
+  <h2>Welcome to Nova Study 👋</h2>
+  <p class="small">Your personal learning space.</p>
+
+  <section class="card">
+    <h2>📚 My learning goals</h2>
+    <input id="goalInput" placeholder="What do you want to learn?">
+    <button onclick="addGoal()">Add learning goal</button>
+    <div id="goals"></div>
+  </section>
+
+  <section class="card">
+    <h2>📝 My notes</h2>
+    <textarea id="notes" placeholder="Write down what you learn..." rows="5" style="width:100%;padding:12px;border-radius:8px;"></textarea>
+    <p><button onclick="saveNotes()">Save notes</button></p>
+    <p id="saved" class="small"></p>
+  </section>
+
+  <section class="card">
+    <h2>🎯 Daily learning tip</h2>
+    <p id="tip">Small steps every day lead to big progress.</p>
+    <button onclick="newTip()">New tip</button>
+  </section>
+</main>
+<script>
+function addGoal() {
+  const input = document.getElementById("goalInput");
+  if (!input.value.trim()) return;
+  const item = document.createElement("div");
+  item.className = "task";
+  item.textContent = "📖 " + input.value;
+  document.getElementById("goals").appendChild(item);
+  input.value = "";
+}
+function saveNotes() {
+  document.getElementById("saved").textContent = "Notes saved in this page for now!";
+}
+function newTip() {
+  const tips = [
+    "Take short breaks while learning.",
+    "Try explaining what you learned in your own words.",
+    "Practise a little every day.",
+    "Ask questions when something is unclear."
+  ];
+  document.getElementById("tip").textContent =
+    tips[Math.floor(Math.random() * tips.length)];
+}
+</script>
+</body>
+</html>
