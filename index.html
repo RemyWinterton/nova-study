@@ -191,6 +191,13 @@ textarea.field{min-height:180px;resize:vertical}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+  const SUPABASE_URL = "https://zerbysyowhbgelfbijet.supabase.co/rest/v1/";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_AP2lg9sXCjP33rP5dAUm8g_82iXIBHh";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
 const STORAGE_KEY="novaStudyV2";
 let data={goals:[],sessions:[],notes:"",quizAnswers:0,activeDates:[]};
 
